@@ -1,0 +1,49 @@
+import java.util.*;
+public class Main {
+
+public static int count(int num)
+{
+    int count=0;
+    int lastDigit;
+        while(num!=0)
+        {
+             lastDigit=num%10;
+             num=num/10;
+            count++;
+
+        }
+        return count;
+
+}
+
+
+    public static boolean isArmstrong(int num)
+    {
+        int lastDigit;
+        int a=num;
+        int number=0;
+        int b=count(a);
+
+        while(num!=0)
+        {
+            lastDigit=num%10;
+      
+            number+=(int)(Math.pow(lastDigit,b));
+            num=num/10;
+        }
+        if(number!=a)
+        {
+            return false;
+        }
+return true;
+    }
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int num=sc.nextInt();
+        System.out.print(isArmstrong(num));
+
+
+
+    }
+}
