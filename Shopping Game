@@ -1,0 +1,44 @@
+import java.util.*;
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int testCase=sc.nextInt();
+        while(testCase-->0)
+        {
+
+
+
+            int Ayush=sc.nextInt();
+            int harshit=sc.nextInt();
+            int AyushSum=0;
+            int harshitSum=0;
+            int Asum=0;
+            int hsum=0;
+            {
+                while(AyushSum<=Ayush || harshitSum<=harshit)
+                {
+                   Asum=hsum+1;
+                   AyushSum+=Asum;
+                   if(AyushSum>=Ayush)
+                   {
+                       System.out.println("Harshit");
+                       break;
+                   }
+                   hsum=Asum+1;
+                   harshitSum+=Asum+1;
+                   if(harshitSum>=harshit)
+                   {
+                       System.out.println("Aayush");
+                       break;
+                   }
+
+
+                }
+
+            }
+           
+          
+        }
+
+    }
+}
