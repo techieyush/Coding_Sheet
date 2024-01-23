@@ -1,0 +1,98 @@
+
+import java.util.Arrays;
+
+public class MoveZeroEnd {
+
+
+    // public static void moveZero(int nums[])
+    // {
+    //     int n=nums.length;
+    //     Arrays.sort(nums);
+    //     int count=0;
+    //     for(int i=0;i<n;i++)
+    //     {
+    //         if(nums[i]==0)
+    //         {
+    //             count++;
+    //         }
+    //     }
+    //   System.out.println(count);
+    //     while (count!=0) {
+    //         int val=nums[0];
+    //         for(int i=0;i<n-1;i++)
+    //         {
+    //             nums[i]=nums[i+1];
+    //         }
+    //         nums[n-1]=val;
+    //         count--;
+            
+    //     }
+
+    //     for(int i=0;i<n;i++)
+    //     {
+    //         System.out.print(nums[i]+" ");
+    //     }
+
+    // }
+
+    public static int[] moveZero(int nums[])
+    {
+        int n=nums.length;
+        int j=-1;
+        for(int i=0;i<n;i++)
+        {
+            if(nums[i]==0)
+            {
+                j=i;
+                break;
+            }
+        }
+        if(j==-1)
+        {
+            return nums;
+        }
+
+        for(int i=j+1;i<n;i++)
+        {
+            if(nums[i]!=0)
+            {
+                int temp=nums[i];
+                nums[i]=nums[j];
+                nums[j]=temp;
+                j++;
+            }
+        }
+        return nums;
+    }
+    // public static int[] moveZero(int nums[])
+    // {
+    //     int n=0;
+    //     int zeros=0;
+    //     for(int i=0;i<n;i++)
+    //     {
+    //         if(nums[i]==0)
+    //         {
+    //             zeros++;
+    //         }
+    //         else if(zeros>0)
+    //         {
+    //             int temp=nums[i];
+    //             nums[i]=0;
+    //             nums[i-zeros]=temp;
+    //         }
+    //     }
+    //   return nums;
+    // }
+
+    public static void main(String[] args) {
+        int nums[]={0,1,0,3,12};
+        int arr[]=moveZero(nums);
+        for(int i=0;i<arr.length;i++)
+        {
+            System.out.print(arr[i]+" ");
+        }
+
+       
+    }
+    
+}
