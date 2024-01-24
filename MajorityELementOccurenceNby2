@@ -1,0 +1,66 @@
+
+public class MajorityElement {
+
+
+    // public static int majorityEle(int nums[])
+    // {
+    //     int n=nums.length;
+    //     for(int i=0;i<n;i++)
+    //     {
+    //         int count=0;
+
+    //         for(int j=0;j<n;j++)
+    //         {
+    //             if(nums[i]==nums[j])
+    //             {
+    //                 count++;
+    //             }
+    //         }
+    //         if(count>n/2)
+    //         {
+    //             return nums[i];
+    //         }
+    //     }
+    //     return -1;
+    // }
+
+    public static int majorityEle(int nums[])
+    {
+        int n=nums.length;
+        int count=0;
+        int ele=0;
+        for(int i=0;i<n;i++){
+            if(count==0){
+                count=1;
+                ele=nums[i];
+            }
+            else if(ele==nums[i])
+            {
+                count++;
+            }
+            else{
+                count--;
+            }
+        }
+        int count1=0;
+        for(int i=0;i<n;i++)
+        {
+            if(nums[i]==ele)
+            {
+                count1++;
+            }
+        }
+        if(count1>n/2)
+        {
+            return ele;
+        }
+       return -1;
+    }
+    public static void main(String[] args) {
+        int nums[]={4,4,2,4,3,4,4,3,2,4};
+        int res=majorityEle(nums);
+        System.out.println(res);
+        
+    }
+    
+}
