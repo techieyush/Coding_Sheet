@@ -1,0 +1,54 @@
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class LongestSubArrayWithGivenSum {
+
+    // public static int subArray(int nums[], int sum)
+    // {
+    //     int n=nums.length;
+    //     int count=0;
+    //     for(int i=0;i<n;i++)
+    //     {
+    //         int Tsum=0;
+    //         for(int j=i;j<n;j++)
+    //         {
+    //             Tsum+=nums[j];
+
+    //             if(Tsum==sum)
+    //             {
+    //                 count++;
+    //             }
+    //         }
+    //     }
+    //     return count;
+     
+
+    // }
+
+    public static int subArray(int[] nums,int k)
+    {
+        int res=0;
+        int curr=0;
+        Map<Integer,Integer>map=new HashMap<>();
+        map.put(0,1);
+        for(int i:nums)
+        {
+            curr+=i;
+            res+=map.getOrDefault(curr-k,0);
+            map.put(curr,map.getOrDefault(curr,0)+1);
+
+        }
+        return res;
+
+    }
+
+
+    public static void main(String[] args) {
+        int nums[]={2,3,5};
+        int sum=5;
+       int length= subArray(nums,sum);
+       System.out.println(length);
+    }
+    
+}
