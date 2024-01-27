@@ -1,0 +1,36 @@
+public class SubstringPrint {
+
+    public static void printSubString(String str)
+    {
+        boolean b=true;
+        for(int i=0;i<str.length();i++)
+        {
+            for(int j=i+1;j<str.length();j++)
+            {
+                int m=0;
+                int n1=str.length()-1;
+                while(m<n1)
+                {
+                    if(str.charAt(m)!=str.charAt(n1))
+                    {
+                        b=false;
+                    }
+                    m++;
+                    n1--;
+                }
+                b=true;
+                if(b==true){
+                    System.out.print(str.substring(i, j)+" ");
+               }
+               
+            }
+           
+        }
+    }
+    public static void main(String[] args) {
+        String str="Ayush";
+        printSubString(str);
+    }
+    
+}
+
