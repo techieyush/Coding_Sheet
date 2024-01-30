@@ -1,0 +1,95 @@
+
+public class CycleLinkedList {
+
+
+    
+    class Node{
+        int data;
+        Node next;
+        Node(int data)
+        {
+            this.data=data;
+        }
+    }
+    Node head;
+    Node tail;
+    int size;
+    public void addFirst(int item) 
+    {
+        Node nn=new Node(item);
+        if(this.size==0)
+        {
+            this.head=nn;
+            this.tail=nn;
+            this.size++;
+        }
+        else{
+            nn.next=this.head;
+            this.head=nn;
+            this.size++;
+
+        }
+    }
+    public void addLast(int item)
+    {
+      
+        if(this.size==0)
+        {
+           addFirst(item);
+        }
+        else{
+            Node nn=new Node(item);
+            this.tail.next=nn;
+            this.tail=nn;
+            this.size++;
+
+        }
+
+    }
+
+    public void createCycle()
+    {
+        this.tail.next=this.head;//circularLinkedList
+    }
+
+    public boolean hasCycle() {
+        Node slowPtr=head;
+        Node fastPtr=head;
+        while(fastPtr!=null && fastPtr.next!=null)
+        {
+            slowPtr=slowPtr.next;
+            fastPtr=fastPtr.next.next;
+            if(slowPtr==fastPtr)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void display()
+    {
+        Node temp=this.head;
+        while(temp!=null)
+        {
+            System.out.print(temp.data+"-->");
+            temp=temp.next;
+        }
+        System.out.println(".");
+    }
+
+    public static void main(String[] args) {
+        CycleLinkedList cl= new CycleLinkedList();
+        cl.addLast(1);
+        cl.addLast(2);
+        cl.addLast(3);
+        cl.addLast(4);
+        cl.addLast(5);
+        // cl.display();
+        cl.createCycle();
+        // cl.display();
+        System.out.println(cl.hasCycle());
+    }
+    
+}
+
