@@ -1,0 +1,88 @@
+
+public class QueueImplementation {
+    private int nums[];
+    private int front=0;
+    private int size=0;
+
+   public QueueImplementation()
+    {
+        this.nums=new int[5];
+    }
+
+    public QueueImplementation(int cap)
+    {
+        this.nums=new int[cap];
+    }
+
+    public boolean isEmpty()
+    {
+        return size==0;
+    }
+
+    public boolean isfull()
+    {
+        return size==nums.length;
+    }
+
+    public int size()
+    {
+        return size;
+    }
+
+
+    public void Enqueue(int item) throws Exception
+    {
+        if(isfull())
+        {
+            throw new Exception("Queue is Full");
+        }
+        int index=(size+front)%nums.length;
+        nums[index]=item;
+        size++;
+    }
+
+    public int Dequeue() throws Exception
+    {
+        if(isEmpty()){
+            throw new Exception("Queue khali hai");
+        }
+        int val=nums[front];
+        front=(front+1)%nums.length;
+        size--;
+        return val;
+    }
+
+    public int getFront() throws Exception
+    {
+        
+        if(isEmpty()){
+            throw new Exception("Queue khali hai");
+        }
+        return nums[front];
+    }
+
+    public void display()
+    {
+        for(int i=0;i<size;i++)
+        {
+            int idx=(front+i)%nums.length;
+            System.out.print(nums[idx]+" ");
+        }
+        System.out.println(" ");
+    }
+
+    public static void main(String[] args) throws Exception {
+        QueueImplementation  q=new QueueImplementation();
+        q.Enqueue(10);
+        q.Enqueue(20);
+        q.Enqueue(30);
+        q.Enqueue(40);
+        q.Enqueue(50);
+        q.display();
+        System.out.println( q.Dequeue());
+        q.display();
+        System.out.println( q.getFront());
+       
+       
+    }
+}
