@@ -1,1 +1,14 @@
+SUbstring method
+
+
+public class StringSubstring {
+    public static void main(String[] args) {
+        String str="nunumerabaccha";
+        System.out.println(str.substring(0));
+        System.out.println(str.substring(0,5));
+        System.out.println(str.substring(3,4));
+        System.out.println(str.substring(2,5));
+    }
+    
+}
 
