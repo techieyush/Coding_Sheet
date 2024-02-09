@@ -1,1 +1,18 @@
+public class StringEqualsMethod {
+    public static void main(String[] args) {
+        String str="Ayush";
+        String str1="Ayush";
+        String str2=new String("Ayush");
+
+        System.out.println(str1.equals(str2));
+
+        System.out.println(str1==str2);
+
+
+        System.out.println(str==str1);
+
+
+    }
+    
+}
 
