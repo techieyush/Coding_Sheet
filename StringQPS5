@@ -1,1 +1,15 @@
 
+public class InternMethod {
+
+    public static void main(String[] args) {
+        // String str1 = new String("Scaler by InterviewBit");  
+        // String str2 = new String("Scaler by InterviewBit");
+        String str1 = new String("Scaler by InterviewBit").intern();  
+        String str2 = new String("Scaler by InterviewBit").intern(); 
+        String str3="Scaler by InterviewBit".intern();
+        System.out.println(str1 == str3);  
+        System.out.println(str1 == str2);   
+    }
+
+    
+}
