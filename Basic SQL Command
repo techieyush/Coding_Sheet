@@ -1,0 +1,33 @@
+
+Create table Engineers(id varchar(20) primary key,name varchar(20),domain varchar(20), gender varchar(10)check(gender in ('M','F','Female','Male')));
+desc Engineers;
+insert into Engineers values('EMP001','Ayush','Web Domain','M');
+insert into Engineers values('EMP002','Prachi','Data Analytics','F');
+insert into Engineers values('EMP003','Aman','Android','M');
+insert into Engineers values('EMP004','Ashish','Data Science','M');
+insert into Engineers values('EMP005','Rishabh','IOS Development','M');
+Select * from Engineers;
+
+Select * from Engineers where domain='Web Domain';
+update Engineers set domain='FullStack Developer' where domain='Web Domain';
+select * from Engineers where name='Ayush';
+
+
+create table school(
+	class int ,
+	student_id varchar(20),
+	gender varchar(10)check(gender in('M','F','Male','Female')),
+	class_teacher varchar(20) primary key
+);
+
+INSERT INTO school VALUES(10, 'S001', 'M', 'Mr. Smith');
+INSERT INTO school VALUES(11, 'S002', 'F', 'Mrs. Johnson');
+INSERT INTO school VALUES(10, 'S003', 'M', 'Mr. Davis');
+INSERT INTO school VALUES(12, 'S004', 'F', 'Miss White');
+INSERT INTO school VALUES(11, 'S006', 'M', 'Mr. Brown');
+INSERT INTO school VALUES(12, 'S009', 'F', 'Mrs. Miller');
+INSERT INTO school VALUES(10, 'S011', 'M', 'Mr. Turner');
+INSERT INTO school VALUES(11, 'S012', 'F', 'Miss Taylor');
+INSERT INTO school VALUES(12, 'S015', 'M', 'Mr. Garcia');
+INSERT INTO school VALUES(10, 'S016', 'F', 'Miss Anderson');
+Select * from school;
