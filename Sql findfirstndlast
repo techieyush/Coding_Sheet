@@ -1,0 +1,7 @@
+
+
+select * from Engineers where name like '%Ay%';
+
+select * from Engineers where name like 'P%';
+
+select * from Engineers where name like '%i';
