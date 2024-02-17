@@ -1,0 +1,5 @@
+
+
+Select distinct class from school order by class desc; 
+Select distinct class from school order by class asc;
+select distinct domain from Engineers order by domain;
