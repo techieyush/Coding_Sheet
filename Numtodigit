@@ -1,0 +1,3 @@
+int val=num%10;
+sout(val);
+num/=10;
