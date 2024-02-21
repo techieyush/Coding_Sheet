@@ -1,0 +1,41 @@
+
+
+
+Logical_Operations
+
+AND 
+db.movies.find({$and:[{releaseYear:{$gte:2009}},{releaseYear:{$lte:2023}}]});
+
+OR 
+db.movies.find({$or:[{releaseYear:{$gte:2009}},{releaseYear:{$lte:2023}}]});
+
+
+replaceOne
+db.movies.replaceOne({movieName:"Pathaan"},{movieName:"Jawaan",rating:9.7,releaseYear:2023});
+
+
+Aggregate Function
+
+$avg
+db.movies.aggregate([{$group:{_id:null,averageRating:{$avg:"$rating"}}}]);
+
+$sort
+db.movies.aggregate([
+   { $group: { _id: "$release_year", averageRating: { $avg: "$rating" } } },
+   { $sort: { _id: 1 } } // Sort by release year in ascending order]);
+
+ db.movies.find().sort({"movieName":1});//ascending
+db.movies.find().sort({"movieName":-1});// for descenfing
+
+
+$limit
+db.movies.aggregate([{$group:{_id:null,averageRating:{$avg:"$rating"}}},{$limit:1}]);
+ db.movies.find().limit(5);
+
+$skip
+db.movies.find({"releaseYear":2000}).skip(1);
+
+
+
+
+
