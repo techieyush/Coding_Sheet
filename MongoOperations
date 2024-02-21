@@ -1,0 +1,29 @@
+MONGO_OPERATORS
+
+equals
+db.movies.find({rating:{$eq:"8.9"}});
+
+greater
+db.movies.find({rating:{$gt:"8.4"}});
+
+greater than and equalsto
+db.movies.find({rating:{$gte:"8.4"}});
+
+lesser
+db.movies.find({rating:{$lt:"8.4"}});
+
+less than and equalsto
+db.movies.find({rating:{$lte:"8.4"}});
+
+in [particular year]
+db.movies.find({releaseYear:{$in:[2012,2023,2024,2005,2013]}});
+
+not equals
+db.movies.find({rating:{$ne:"8.4"}});
+
+nonin [particular condition]
+db.movies.find({releaseYear:{$nin:[2012,2023,2024,2005,2013]}});
+
+Exists
+db.movies.find({rating:{ $exists : true}});
+jisme voh value higi kewal voh return kregaa
