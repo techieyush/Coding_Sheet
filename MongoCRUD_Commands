@@ -1,0 +1,43 @@
+show dbs-show all database present in database
+
+to drop a database already present in the database
+use db_name
+db.dropDatabase();
+
+Create a new database
+use movieApp
+
+Create a new Collection
+db.createCollection('collectionName');
+
+Add data into collection
+db.movies.insertOne({ "movieName":"Fighter",
+                        "releaseYear":2024,
+                        "isWatched":"true",
+                        "rating":"9.2",
+                        "Director":"ABC"
+                    });
+db.movies.insertMany([
+    {"movieName":"PK","releaseYear":2014,"isWatched":"true","rating":"8.1","Director":"Rajkumar Hirani","genre": ["Comedy", "Drama", "Fantasy"]}
+    ,{"movieName":"Dangal","releaseYear":2016,"isWatched":"true","rating":"8.4","Director":"Nitesh Tiwari","genre": ["Biography", "Drama", "Fantasy"]}
+    ,{"movieName":"Hera Pheri","releaseYear":2000,"isWatched":"true","rating":"8.9","Director":"Priyadarshan","genre": ["Comedy"]}
+    ,{"movieName":"Pathaan","releaseYear":2023,"isWatched":"false","rating":"9.1","Director":"Kabir Khan","genre": ["Comedy","Thriller", "Drama"]}]);
+
+
+
+
+To find any collection
+db.movies.findOne();
+db.movies.find();
+
+Add some new find in the already present Collection
+db.movies.updateOne({movieName:"Fighter"},{$set:{"genre":["Action","thriller","Suspense"]}});
+db.movies.updateMany({movieName:"Pathaan"},{$set:{rating:9.8,isWatched:"true"}});
+
+delete Command for any collection
+db.movies.deleteOne({movieName:"Hera Pheri"});
+db.movies.deleteMany({isWatched:"true"});
+
+
+
+
