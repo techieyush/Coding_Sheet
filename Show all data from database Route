@@ -1,0 +1,17 @@
+
+const express=require('express');
+const User = require('../Model/Schema');
+const router=express.Router();
+
+router.get('/getallData',async(req,res)=>{
+    try{
+    const allData= await User.find();
+    res.status(200).json(allData);
+    }
+    catch(err){
+        res.status(501).json({error:err.message});
+    }
+
+});
+
+module.exports=router;
