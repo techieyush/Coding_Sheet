@@ -1,0 +1,23 @@
+const express=require('express');
+const router=express.Router();
+const User=require('../Model/Schema');
+
+
+router.delete('/deleteLatestRecord',async(req,res)=>{
+    try{
+        const latestData=await User.findOne({},{},{$sort:{'_id':-1}});
+    
+    if(!latestData)
+    {
+        res.status(404).json({message:"No data Found"});
+    }
+    await User.deleteOne({_id:latestData});
+}
+catch(err)
+    {
+        res.status(501).json({error:err.message});
+    }
+
+});
+
+module.exports=router;
