@@ -1,0 +1,22 @@
+const express = require('express');
+const router = express.Router();
+const User = require('../Model/Schema');
+
+router.delete('/deleteDataByName/:StudentName', async (req, res) => {
+    try {
+        const name=req.params.StudentName;
+        console.log(name);
+        const user = await User.findOne({StudentName:name});
+        console.log(user);
+        if (user==null) {
+            return res.status(404).json({ message: "No Data Found" });
+        }
+        await User.deleteOne({ name:name });
+        return res.status(200).json({ message: "Data Deleted Successfully" });
+    } catch (err) {
+        return res.status(500).json({ error: err.message });
+    }
+});
+
+module.exports = router;
+
