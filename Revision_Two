@@ -1,1 +1,77 @@
 
+public class Queue {
+    private int nums[];
+    private int front=0;
+    private int size=0;
+    public Queue()
+    {
+        this.nums=new int[5];
+    }
+    public Queue(int capacity)
+    {
+        this.nums=new int[capacity];
+    }
+    public boolean isEmpty()
+    {
+        return size==0;
+    }
+    public boolean isfull()
+    {
+        return size==nums.length;
+    }
+    public int size()
+    {
+        return size;
+    }
+    public void Enqueue(int item) throws Exception
+    {
+        if(isfull())
+        {
+            throw new Exception("Queue is already full");
+        }
+        int index=(size+front)%nums.length;
+        nums[index]=item;
+        size++;
+    }
+    public int Dequeue() throws Exception
+    {
+        if(isEmpty())
+        {
+            throw new Exception("Stack is already Empty");
+        }
+        int val=nums[front];
+        front=(front+1)%nums.length;
+        size--;
+        return val;
+    }
+    public int getFront() throws Exception
+    {
+        if(isEmpty())
+        {
+            throw new Exception("Stack is already Empty");
+        }
+        return nums[front];
+    }
+    public void display()
+    {
+        for(int i=0;i<size;i++)
+        {
+            int index=(front+i)%nums.length;
+            System.out.print(nums[index]+" ");
+        }
+        System.out.println(" ");
+    }
+    public static void main(String[] args) throws Exception {
+        Queue q=new Queue();
+        q.Enqueue(10);
+        q.Enqueue(20);
+        q.Enqueue(30);
+        q.Enqueue(40);
+        q.Enqueue(50);
+        q.display();
+        System.out.println( q.Dequeue());
+        q.display();
+         System.out.println( q.getFront());
+    }
+    
+}
