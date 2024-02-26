@@ -1,1 +1,75 @@
 
+public class Stack {
+    private int nums[];
+    private int top=0;
+    public Stack()
+    {
+        this.nums=new int[5]; 
+    } 
+    public Stack(int capacity)
+    {
+        this.nums=new int[capacity];
+    }
+    public boolean isEmpty()
+    {
+        return top==0;
+    }
+    public boolean isfull()
+    {
+        return top==nums.length;
+    }
+    public void push(int item) throws Exception
+    {
+        if(isfull())
+        {
+            throw new Exception("Stack is already full");
+        }
+        nums[top]=item;
+        top++;
+    }
+    public int pop() throws Exception
+    {
+        if(isEmpty())
+        {
+            throw new Exception("Stack is already Empty");
+        }
+        top--;
+        return nums[top]; 
+    }
+    public int peek() throws Exception{
+        if(isEmpty())
+        {
+            throw new Exception("Stack is already Empty"); 
+        }
+        return nums[top-1];
+    }
+    public int size()
+    {
+            return top;
+    }
+    public void display()
+    {
+        for(int i=0;i<top;i++)
+        {
+            System.out.print(nums[i]+" ");
+        }
+        System.out.println(" ");
+    }
+public static void main(String[] args) throws Exception {
+    Stack s= new Stack();
+    s.push(10);
+    s.push(20);
+    s.push(30);
+    s.push(40);
+    s.push(50);
+    s.display();
+    System.out.println(s.peek());
+    s.pop();
+    s.display();
+    System.out.println(s.size());
+}
+
+
+
+    
+}
