@@ -1,0 +1,54 @@
+
+public class LinkedList {
+
+    class Node{
+        int data;
+        Node next;
+        Node(int data)
+        {
+            this.data=data;
+        }
+        
+    }
+    Node head;
+    Node tail;
+    int size;
+    public void addFirst(int item)
+    {
+        Node nn=new Node(item);
+        if(size==0)
+        {
+            head=nn;
+            tail=nn;
+            size++;
+        }else{
+            nn.next=head;
+            head=nn;
+            size++;
+        }
+    }
+    public void addLast(int item)
+    {
+        if(size==0)
+        {
+            addFirst(item);
+        }
+        else{
+            Node nn=new Node(item);
+            tail.next=nn;
+            tail=nn;
+            size++;
+        }
+    }
+    public void display()
+    {
+        Node temp=head;
+        while(head.next!=null)
+        {
+            System.out.println(temp.data+"-->");
+            temp=temp.next;
+        }
+        System.out.println(" ");
+    }
+   
+}
