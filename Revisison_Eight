@@ -1,1 +1,53 @@
 
+class Majority{
+public static void ZeroOneTwo(int nums[])
+{
+  int low=0;
+int mid=0;
+int high=nums.length-1;
+while(mid<=high)
+{
+if(nums[mid]==0)
+{
+swap(nums,low,mid);
+mid++;
+low++;
+}
+else if(nums[mid]==1)
+{
+mid++;
+}
+else{
+  swap(nums,mid,high);
+high--;
+
+}
+
+}
+}
+
+
+}
+public static  void swap(int nums[],int left, int right)
+{
+  int temp=nums[left];
+nums[left++]=nums[high];
+nums[high--]=temp;
+
+}
+
+public static void main(String nums[])
+{
+Scanner sc = new Scanner(System.in);
+int n=sc.nextInt();
+int nums[]=new int[n];
+for(int i=0;i<n;i++)
+{
+nums[i]=sc.nextInt();
+}
+System.out.println(ZeroOneTwo(nums));
+
+}
+
+
+}
