@@ -1,3 +1,4 @@
+All case O(nlogn) Complexiety
 
 public class MSort {
 
