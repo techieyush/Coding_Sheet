@@ -1,4 +1,7 @@
 
+Average,worst=O(n^2)
+bestCase=o(n) array is already sorted.
+
 public class ISort {
 
 
