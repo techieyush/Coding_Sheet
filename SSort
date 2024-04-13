@@ -1,4 +1,5 @@
-
+complexiety in all cases is O(n^2)
+Space=o(1)
 public class SSort {
 
 
