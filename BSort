@@ -1,3 +1,5 @@
+Complexiety=O(n^2)
+the complexiety is O(n) when the array is already sorted.
 
 public class BSort {
 
@@ -18,8 +20,6 @@ public class BSort {
             }
         }
     }
-
-
 
     public static void main(String[] args) {
         
