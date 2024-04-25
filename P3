@@ -1,0 +1,43 @@
+
+import CycleLinkedList.Node;
+
+public class RemoveCycleInLL {
+
+    public void removeCycle()
+    {
+        Node meetup=hasCycle();
+        if(meetup==null)
+        {
+            return;
+        }
+        int count=1;
+        Node temp=meetup;
+        while(temp.next!=meetup)
+        {
+            count++;
+            temp=temp.next;
+        }
+        Node fast=head;
+        for(int i=1;i<=count;i++)
+        {
+            fast=fast.next;
+        }
+        fast.next=null;
+    }
+    
+    public void floydCycleRemoval()
+    {
+        Node meetup=hasCycle();
+        if(meetup==null)
+        {
+            return;
+        } 
+        Node fast=meetup;
+        Node fast=head;
+        for(int i=1;i<=count;i++)
+        {
+            fast=fast.next;
+        }
+        fast.next=null;
+    }
+}
