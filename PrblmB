@@ -1,1 +1,32 @@
 
+
+//String switch Case
+
+public class SwitchString {
+    public static void main(String[] args) {
+        String str="Ayush";
+        switch(str)
+        {
+            case "Ayush":
+                System.out.println("Hi Ayush!");
+                break; 
+            
+            case "Prachi":
+                System.out.println("Hi Prachi!");
+                break; 
+            
+            case "Anuj":
+                System.out.println("Hi Anuj");
+                break; 
+
+            case "papa":
+                System.out.println("Hi Papa");
+                break; 
+            
+            default:
+                System.out.println("Hi Mummy!");
+                break; 
+        }
+    }
+    
+}
