@@ -1,1 +1,10 @@
 
+select min(class) from school;
+
+select max(class) from school;
+
+select avg(class) from school;
+
+select count(class) from school;
+
+select sum(class) from school;
