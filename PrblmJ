@@ -1,0 +1,148 @@
+https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/
+
+public class Main{
+    
+    // public static void bubbleSort(int nums[])
+    // {
+    //     int n=nums.length;
+    //     for(int turn=1;turn<n;turn++)
+    //     {
+    //         for(int i=0;i<n-turn;i++)
+    //         {
+    //             if(nums[i]<nums[i+1])
+    //             {
+    //                 int temp=nums[i];
+    //                 nums[i]=nums[i+1];
+    //                 nums[i+1]=temp;
+    //             }
+    //         }
+    //     }
+        
+    //     for(int i=0;i<n;i++)
+    //     {
+    //         System.out.print(nums[i]+" ");
+    //     }
+    // }
+    
+    // public static void selectionSort(int nums[])
+    // {
+    //     int n=nums.length;
+    //     for(int i=0;i<n;i++)
+    //     {
+    //         int min=i;
+    //         for(int j=i+1;j<n;j++)
+    //         {
+    //             if(nums[j]<nums[min])
+    //             {
+    //                 min=j;
+    //             }
+    //         }
+    //         int temp=nums[i];
+    //         nums[i]=nums[min];
+    //         nums[min]=temp;
+            
+    //     }
+        
+    //     for(int i=0;i<n;i++)
+    //     {
+    //         System.out.print(nums[i]+" ");
+    //     }
+    // }
+    
+    // public static void insertionSort(int nums[])
+    // {
+    //     int n=nums.length;
+    //     for(int i=1;i<n;i++)
+    //     {
+    //         int j=i-1;
+    //         int picked=nums[i];
+    //         while(j>=0 && nums[j]>picked)
+    //         {
+    //             nums[j+1]=nums[j];
+    //             j--;
+    //         }
+    //         nums[j+1]=picked;
+    //     }
+        
+        
+        
+    //     for(int i=0;i<n;i++){
+    //     System.out.print(nums[i]+" ");
+    //     }
+    // }
+    
+    public static void merge(int nums[],int low,int mid,int high)
+    {
+        int n1=mid-low+1;
+        int n2=high-mid;
+        
+        int L[]=new int[n1];
+        int R[]=new int[n2];
+        
+        for(int i=0;i<n1;i++)
+        {
+            L[i]=nums[low+i];
+        }
+        for(int j=0;j<n2;j++)
+        {
+            R[j]=nums[mid+1+j];
+        }
+        
+        int i=0,j=0;
+        int k=low;
+        
+        while(i<n1 && j<n2)
+        {
+            if(L[i]<=R[j])
+            {
+                nums[k]=L[i];
+                i++;
+            }
+            else{
+                nums[k]=R[j];
+                j++;
+            }
+            k++;
+        }
+        while(i<n1)
+        {
+            nums[k]=L[i];
+            i++;
+            k++;
+        }
+        while(j<n2)
+        {
+            nums[k]=R[j];
+            j++;
+            k++;
+            
+        }
+    }
+    
+    
+    public static void mergeSort(int nums[], int low, int high)
+    {
+        if(low<high)
+        {
+            int mid=low+(high-low)/2;
+            mergeSort(nums,low,mid);
+            mergeSort(nums,mid+1,high);
+            merge(nums,low,mid,high);
+        }
+    }
+    
+    public static void main(String[] args)
+    {
+        int nums[]={-9,8,3,2,6,-2,1,5,-7,4};
+        // bubbleSort(nums);
+        // selectionSort(nums);
+        // insertionSort(nums);
+        mergeSort(nums,0,nums.length-1);
+        for(int i=0;i<nums.length;i++)
+        {
+            System.out.print(nums[i]+" ");
+        }
+        
+    }
+}
+
